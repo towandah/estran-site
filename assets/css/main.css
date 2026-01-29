@@ -3510,3 +3510,258 @@ input, select, textarea {
 			}
 
 	}
+
+
+
+
+
+
+
+
+
+/* Header background image */
+#header {
+  background-image: url("../../images/header-estran.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+#header .inner {
+  position: relative;
+  z-index: 1;
+}
+
+#header {
+  background-attachment: fixed;
+}
+
+/* Centrage vertical du texte par rapport à l'image (section one) */
+.center-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Section One: aligner verticalement les 2 colonnes */
+#one .align-center {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 980px) {
+  #one .align-center {
+    display: block;
+  }
+}
+
+
+/* --- Affiche à gauche --- */
+.affiche img {
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* --- Carte décompte --- */
+.countdown-card {
+  border-radius: 16px;
+  padding: 1.6em 1.6em 1.2em 1.6em;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.countdown-kicker {
+  margin: 0 0 0.6em 0;
+  opacity: 0.9;
+}
+
+.countdown {
+  display: flex;
+  gap: 0.8em;
+  flex-wrap: wrap;
+  margin: 0.6em 0 0.8em 0;
+}
+
+.countdown .unit {
+  min-width: 110px;
+  text-align: center;
+  padding: 0.9em 0.8em;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.countdown .num {
+  display: block;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.countdown .label {
+  display: block;
+  font-size: 0.85em;
+  opacity: 0.9;
+  margin-top: 0.25em;
+}
+
+.countdown-note {
+  margin: 0.2em 0 1.2em 0;
+  opacity: 0.9;
+}
+
+/* Section Two : centrage du bloc événement */
+#two .center-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Titre un peu plus respirant */
+#two .center-event .major {
+  margin-bottom: 1.5em;
+}
+
+/* Carte du décompte bien centrée */
+#two .countdown-card {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Chiffres bien alignés */
+#two .countdown {
+  justify-content: center;
+}
+
+/* Boutons centrés */
+#two .actions {
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 736px) {
+  #two .countdown-card {
+    padding: 1.3em;
+  }
+}
+
+
+
+/* --- Section Two : centrage global --- */
+#two .center-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Centrer le trait (souvent un :after) sous les titres "major" */
+#two .center-event header.major h2:after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Carte centrée + largeur max */
+#two .countdown-card {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Décompte centré */
+#two .countdown {
+  justify-content: center;
+}
+
+/* Boutons centrés */
+#two .actions {
+  justify-content: center;
+}
+
+/* --- Kicker "Départ dans" : plus gros + icône + centré --- */
+#two .countdown-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 0 0 0.9em 0;
+}
+
+/* Icône calendrier un peu mise en valeur */
+#two .countdown-kicker .icon {
+  font-size: 1.1em;
+  opacity: 0.95;
+}
+
+/* Note "Prépare tes chaussures" bien centrée */
+#two .countdown-note {
+  text-align: center;
+  font-size: 1.05em;
+  margin: 0.6em 0 1.2em 0;
+}
+
+
+/* === Section Two : fond identique au header + voile flou === */
+
+#two {
+  position: relative;
+  background-image: url("../../images/header-estran.jpg"); /* même image que le header */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Voile sombre */
+#two::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* Voile flou */
+#two::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+/* Le contenu passe au-dessus des voiles */
+#two .container {
+  position: relative;
+  z-index: 2;
+}
+
+#two {
+  padding-top: 6em;
+  padding-bottom: 6em;
+}
+
+#two,
+#two h2,
+#two p,
+#two .label {
+  color: #fff;
+}
