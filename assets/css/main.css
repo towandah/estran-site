@@ -3874,7 +3874,7 @@ input, select, textarea {
   box-shadow:
     inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25),
     0 12px 30px rgba(0,0,0,0.30);
-  padding: 0 2em;                  /* plus large */
+  padding: 0 1.4em;                  /* plus large */
   margin: 0;
   list-style: none;
   background: transparent;
@@ -3883,7 +3883,7 @@ input, select, textarea {
 #nav > ul > li {
   display: inline-block;
   text-align: center;
-  padding: 0 1.6em;                /* plus d’air entre onglets */
+  padding: 0 1.1em;                /* plus d’air entre onglets */
   margin: 0;
 }
 
@@ -3896,8 +3896,8 @@ input, select, textarea {
   text-decoration: none;
   font-size: 0.72em;               /* légèrement plus lisible */
   letter-spacing: 0.28em;
-  height: 5.4em;                   /* PLUS HAUT */
-  line-height: 5.4em;
+  height: 4.2em;                   /* PLUS HAUT */
+  line-height: 4.2em;
   transition: all .25s ease-in-out;
   outline: 0;
   white-space: nowrap;
@@ -4109,3 +4109,356 @@ input, select, textarea {
 }
 
 
+
+@media screen and (max-width: 736px) {
+  #nav > ul > li > a {
+    height: 3.2em;
+    line-height: 3.2em;
+    font-size: 0.62em;
+    letter-spacing: 0.14em;
+  }
+
+  #nav > ul > li {
+    padding: 0 0.7em;
+  }
+
+  #nav > ul {
+    padding: 0.4em 0.9em;
+  }
+}
+
+
+
+
+/* === Footer : même esthétique que le header === */
+
+#footer {
+  position: relative;
+  background-image: url("../../images/header-estran.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 4.5em 0 3.5em 0;
+}
+
+/* Voile sombre */
+#footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Voile flou */
+#footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+/* Contenu au-dessus */
+#footer > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* === Footer en 2 colonnes === */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3em;
+  max-width: 80em;
+  margin: 0 auto;
+}
+
+.footer-col {
+  width: 100%;
+}
+
+.footer-form form {
+  max-width: 100%;
+}
+
+.footer-info .footer-infos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2em;
+  margin-bottom: 2em;
+}
+
+.footer-info .info {
+  display: flex;
+  gap: 0.9em;
+  align-items: flex-start;
+  padding: 1.1em 1.2em;
+  border-radius: 0.6em;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+}
+
+.footer-info .icon {
+  font-size: 1.2em;
+  opacity: 0.9;
+  margin-top: 0.25em;
+}
+
+/* Message statut formulaire */
+.form-status {
+  margin-top: 1em;
+  opacity: 0.95;
+}
+
+/* Responsive : une colonne sur mobile */
+@media screen and (max-width: 980px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5em;
+  }
+}
+
+/* === Footer layout : 2 colonnes alignées === */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3em;
+  align-items: start;
+  max-width: 78em;
+  margin: 0 auto;
+}
+
+.footer-intro {
+  margin: 0 0 1.2em 0;
+  opacity: 0.95;
+}
+
+/* Formulaire : plus petit + plus lisible (moins transparent) */
+.contact-card {
+  padding: 1.2em 1.2em 0.6em 1.2em;
+  border-radius: 0.6em;
+  background: rgba(0, 0, 0, 0.55);            /* moins transparent */
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  max-width: 520px;                           /* plus compact */
+}
+
+/* Champs un peu moins hauts */
+#footer input[type="text"],
+#footer input[type="email"],
+#footer textarea {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+}
+
+#footer textarea {
+  resize: vertical;
+}
+
+/* Bouton plus discret */
+#footer .button.small {
+  font-size: 0.85em;
+  padding: 0 1.4em;
+  height: 2.8em;
+  line-height: 2.8em;
+}
+
+/* Colonne droite : lignes simples et alignées */
+.contact-lines {
+  display: grid;
+  gap: 1.2em;
+  margin-top: 3.2em; /* aligne visuellement avec le contenu sous le titre à gauche */
+}
+
+.contact-lines .line {
+  display: grid;
+  grid-template-columns: 2.2em 1fr;
+  gap: 0.75em;
+  align-items: start;
+}
+
+.contact-lines .icon {
+  font-size: 1.15em;
+  opacity: 0.9;
+  margin-top: 0.2em;
+}
+
+.contact-lines .text {
+  line-height: 1.45;
+}
+
+#footer .icons {
+  margin-top: 1.6em;
+}
+
+
+/* === Footer layout === */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+  align-items: start;
+  max-width: 78em;
+  margin: 0 auto;
+}
+
+/* Colonne gauche */
+.footer-info {
+  max-width: 520px;
+}
+
+.footer-intro {
+  margin-bottom: 1.6em;
+  opacity: 0.95;
+}
+
+/* Lignes adresse / email : ALIGNÉES */
+.contact-lines {
+  display: grid;
+  gap: 1.4em;
+  margin-bottom: 1.6em;
+}
+
+.contact-lines .line {
+  display: grid;
+  grid-template-columns: 1.8em 1fr;
+  gap: 0.8em;
+  align-items: flex-start;
+}
+
+.contact-lines .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.8em;
+  height: 1.8em;
+
+  font-size: 1.15em;
+  opacity: 0.9;
+}
+
+
+.contact-lines .text {
+  line-height: 1.45;
+}
+
+/* Réseaux */
+.footer-socials {
+  margin: 1.2em 0 1.6em 0;
+}
+
+/* Colonne droite : formulaire compact */
+.contact-card {
+  padding: 1.3em 1.3em 0.8em 1.3em;
+  border-radius: 0.6em;
+  background: rgba(0, 0, 0, 0.65); /* plus opaque */
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.4);
+  max-width: 520px;
+  margin-left: auto; /* aligne bien à droite */
+}
+
+#footer textarea {
+  resize: vertical;
+}
+
+/* Bouton plus discret */
+#footer .button.small {
+  font-size: 0.85em;
+  padding: 0 1.4em;
+  height: 2.8em;
+  line-height: 2.8em;
+}
+
+/* Responsive */
+@media screen and (max-width: 980px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5em;
+  }
+
+  .contact-card {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+
+/* Contacts (icône au-dessus, centré) */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4em;
+  margin: 1.6em 0 1.4em 0;
+}
+
+
+.contact-card-mini .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 0.7em;
+  font-size: 1.2em;
+  opacity: 0.95;
+}
+
+.contact-card-mini .text {
+  line-height: 1.45;
+}
+
+/* Mobile */
+@media screen and (max-width: 736px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === Bouton envoyer (footer contact) === */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.send-button {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.65);
+  color: #fff;
+
+  font-family: inherit;        /* même police que le site */
+  font-size: 0.85em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  padding: 0 2.2em;
+  height: 3em;
+  line-height: 3em;
+  border-radius: 999px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover élégant */
+.send-button:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Focus accessible */
+.send-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.4);
+}
