@@ -3765,3 +3765,347 @@ input, select, textarea {
 #two .label {
   color: #fff;
 }
+
+
+/* Header: drapeau + date */
+#header .header-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 1.2em;
+}
+
+#header .flag-bzh {
+  width: 84px;
+  height: auto;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
+  opacity: 0.98;
+}
+
+#header .edition-date {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 0.45em 0.85em;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Option: rendre la date un peu plus petite sur mobile */
+@media screen and (max-width: 736px) {
+  #header .flag-bzh { width: 70px; }
+  #header .edition-date { font-size: 0.95em; }
+}
+
+#header .edition-date {
+  margin: 1.2em 0 1.6em 0;
+  text-align: center;
+}
+
+#header .edition-date {
+  display: inline-block;
+}
+
+
+/* Drapeau breton : noir légèrement transparent */
+#header .flag-bzh {
+  width: 80px;
+  height: auto;
+  opacity: 0.8; /* ajuste entre 0.7 et 0.9 */
+}
+
+/* Animation douce du drapeau */
+@keyframes flagIntro {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+  }
+  to {
+    opacity: 0.85;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#header .flag-bzh {
+  animation: flagIntro 1.2s ease-out forwards;
+}
+
+@keyframes flagFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+#header .flag-bzh {
+  animation:
+    flagIntro 1.2s ease-out forwards,
+    flagFloat 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #header .flag-bzh {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+/* === Nav capsule FIXE, visible au scroll === */
+
+#nav {
+  position: fixed;                 /* visible au scroll */
+  top: 1.6em;                      /* espace avec le haut */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+#nav > ul {
+  display: inline-block;
+  border-radius: 0.45em;           /* un peu plus arrondi */
+  box-shadow:
+    inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25),
+    0 12px 30px rgba(0,0,0,0.30);
+  padding: 0 2em;                  /* plus large */
+  margin: 0;
+  list-style: none;
+  background: transparent;
+}
+
+#nav > ul > li {
+  display: inline-block;
+  text-align: center;
+  padding: 0 1.6em;                /* plus d’air entre onglets */
+  margin: 0;
+}
+
+/* Liens */
+#nav > ul > li > a,
+#nav > ul > li > span {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.72em;               /* légèrement plus lisible */
+  letter-spacing: 0.28em;
+  height: 5.4em;                   /* PLUS HAUT */
+  line-height: 5.4em;
+  transition: all .25s ease-in-out;
+  outline: 0;
+  white-space: nowrap;
+}
+
+/* Hover */
+#nav > ul > li:hover > a {
+  color: #fff;
+}
+
+/* Actif */
+#nav > ul > li.active > a,
+#nav > ul > li.current > a {
+  color: #fff;
+}
+
+/* Éviter que le header passe sous la nav */
+#header {
+  padding-top: 8em;
+}
+
+@media screen and (max-width: 980px) {
+  #nav {
+    top: 1.2em;
+  }
+
+  #nav > ul > li {
+    padding: 0 1.1em;
+  }
+
+  #nav > ul > li > a {
+    height: 4.6em;
+    line-height: 4.6em;
+    letter-spacing: 0.2em;
+  }
+
+  #header {
+    padding-top: 7em;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #nav {
+    top: 0.8em;
+  }
+
+  #nav > ul {
+    padding: 0.6em 1em;
+  }
+
+  #nav > ul > li {
+    padding: 0 0.8em;
+  }
+
+  #nav > ul > li > a {
+    height: 3.6em;
+    line-height: 3.6em;
+    font-size: 0.66em;
+    letter-spacing: 0.16em;
+  }
+
+  #header {
+    padding-top: 6.2em;
+  }
+}
+
+
+/* Onglet actif : plus visible + petit underline */
+#nav > ul > li.active > a,
+#nav > ul > li.current > a {
+  color: #fff;
+  position: relative;
+}
+
+#nav > ul > li.active > a::after,
+#nav > ul > li.current > a::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 1.15em;
+  height: 2px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 999px;
+}
+
+
+/* Nav : état "sur header" (transparent) — déjà ton style */
+#nav > ul {
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+/* Nav : état "scrolled" (fond sombre pour lisibilité) */
+#nav.scrolled > ul {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0px 0px 1px 1px rgba(255, 255, 255, 0.18),
+    0 px 30px rgba(0,0,0,0.35);
+}
+
+/* Option : contour un poil plus visible en scrolled */
+#nav.scrolled > ul {
+  /* ton contour inset est déjà géré par box-shadow,
+     mais si tu veux encore plus net, tu peux ajouter: */
+  /* outline: 1px solid rgba(255,255,255,0.25); */
+}
+
+#nav > ul {
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+/* --- Partenaires --- */
+.partners-intro {
+  max-width: 48em;
+  margin: 0 auto 2.2em auto;
+  opacity: 0.95;
+}
+
+/* Grille responsive */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.1em;
+  align-items: center;
+}
+
+/* Carte logo */
+.partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1em;
+  border-radius: 0.6em;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  transition: transform .25s ease, background-color .25s ease, border-color .25s ease;
+}
+
+/* Logos : taille propre */
+.partner img {
+  width: 100%;
+  max-width: 160px;
+  max-height: 80px;
+  object-fit: contain;
+  display: block;
+
+  /* Voile par défaut */
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.75;
+
+  transition: filter .35s ease, opacity .35s ease;
+}
+
+/* Hover : petit lift */
+.partner:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* Hover : un peu plus visible */
+.partner:hover img {
+  opacity: 0.9;
+  filter: grayscale(0.4) contrast(1.05);
+}
+
+/* Highlight automatique (logo en couleur) */
+.partner.is-highlight img {
+  filter: none;
+  opacity: 1;
+}
+
+/* Responsive */
+@media screen and (max-width: 980px) {
+  .partners-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media screen and (max-width: 736px) {
+  .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partner { padding: 0.9em; }
+  .partner img { max-height: 70px; }
+}
+
+
+/* Highlight partenaire : plus visible */
+.partner.is-highlight {
+  position: relative;
+  z-index: 2;
+  transform: scale(1.06);
+  background: rgba(255,255,255,0.06);
+  border-color: transparent; /* on laisse le néon faire le job */
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.85),
+    0 0 18px rgba(20, 20, 21, 0.85),
+    0 10px 16px rgba(0,0,0,0.35);
+}
+
+.partner.is-highlight img {
+  filter: none;
+  opacity: 1;
+}
+
+.partner {
+  transition: transform .5s ease, background-color .5s ease, border-color .5s ease, box-shadow .5s ease;
+}
+
+
